@@ -1,0 +1,51 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:white;min-height:100vh}
+.app{display:flex;min-height:100vh}
+.left{width:420px;background:white;border-right:1px solid #eee;padding:25px;overflow-y:auto;height:100vh}
+.right{flex:1;background:#fafafa;padding:30px;display:flex;justify-content:center;align-items:flex-start}
+
+h1{font-size:22px;text-align:center;margin-bottom:20px;color:#111}
+h3{font-size:14px;color:#111;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.section{margin-bottom:20px}
+input{width:100%;padding:11px 12px;border:1.5px solid #e5e5e5;border-radius:8px;margin-bottom:8px;outline:none;font-size:14px}
+input:focus{border-color:#111}
+.row{display:flex;gap:8px}
+.row > div{flex:1}
+.row label{font-size:11px;color:#666;margin-bottom:4px;display:block}
+.add-btn{background:#111;color:white;padding:4px 10px;border-radius:20px;font-size:12px;cursor:pointer}
+
+.product-item{background:#f9f9f9;padding:10px;border-radius:10px;margin-bottom:8px;border:1px solid #eee;position:relative}
+.product-item .del{position:absolute;top:8px;right:10px;color:#999;cursor:pointer;font-size:14px}
+.product-item .del:hover{color:red}
+
+.total-card{background:#111;color:white;padding:15px;border-radius:12px;margin:15px 0}
+.total-card div{display:flex;justify-content:space-between;margin:6px 0;font-size:13px;opacity:0.9}
+.total-card .grand{border-top:1px solid #333;padding-top:10px;margin-top:10px;font-size:16px;font-weight:bold;opacity:1}
+
+.gen-btn{width:100%;padding:14px;background:#111;color:white;border:none;border-radius:10px;font-weight:bold;cursor:pointer;margin-bottom:8px}
+.print-btn{width:100%;padding:12px;background:white;color:#111;border:1.5px solid #111;border-radius:10px;font-weight:bold;cursor:pointer}
+
+.invoice-paper{background:white;width:100%;max-width:650px;padding:35px;border-radius:12px;box-shadow:0 5px 30px rgba(0,0,0,0.06);border:1px solid #eee}
+.inv-header{display:flex;justify-content:space-between;border-bottom:2px solid #111;padding-bottom:15px;margin-bottom:20px}
+.inv-header h2{font-size:22px}
+.inv-meta{text-align:right}
+.inv-meta h3{justify-content:flex-end;font-size:18px}
+.inv-customer{margin-bottom:20px}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+th{background:#f9f9f9;padding:10px;text-align:left;font-size:12px;border-bottom:1px solid #eee}
+td{padding:10px;border-bottom:1px solid #f5f5f5;font-size:13px}
+.inv-totals{margin-top:20px;text-align:right}
+.inv-totals div{display:flex;justify-content:space-between;padding:5px 0;font-size:13px;max-width:250px;margin-left:auto}
+.p-grand{border-top:2px solid #111;font-weight:bold;font-size:16px !important;padding-top:10px !important;margin-top:5px}
+.thanks{text-align:center;margin-top:30px;color:#888;font-size:13px}
+
+@media(max-width:900px){
+  .app{flex-direction:column}
+  .left{width:100%;height:auto;border-right:none}
+  .right{padding:15px}
+}
+@media print{
+  .left,.print-btn{display:none}
+  .right{background:white;padding:0}
+  .invoice-paper{box-shadow:none;border:none;max-width:100%}
+}

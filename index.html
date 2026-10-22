@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Invoice Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- LEFT PANEL -->
+        <div class="left">
+            <h1>Invoice Generator</h1>
+            
+            <div class="section">
+                <h3>Company Info</h3>
+                <input type="text" id="company" placeholder="Your Company Name">
+                <input type="text" id="companyAddr" placeholder="Company Address">
+            </div>
+
+            <div class="section">
+                <h3>Customer Info</h3>
+                <input type="text" id="customer" placeholder="Customer Name">
+                <input type="tel" id="mobile" placeholder="Mobile Number">
+                <div class="row">
+                    <input type="date" id="date">
+                    <input type="time" id="time">
+                </div>
+                <input type="text" id="invNo" placeholder="Invoice No - INV001">
+            </div>
+
+            <div class="section">
+                <h3>Products <span class="add-btn" onclick="addProduct()">+ Add</span></h3>
+                <div id="productList"></div>
+            </div>
+
+            <div class="section">
+                <h3>Charges</h3>
+                <div class="row">
+                    <div><label>Discount %</label><input type="number" id="discount" value="0" min="0" max="100"></div>
+                    <div><label>GST %</label><input type="number" id="gst" value="18" min="0"></div>
+                    <div><label>Shipping ₹</label><input type="number" id="shipping" value="0" min="0"></div>
+                </div>
+            </div>
+
+            <div class="total-card">
+                <div><span>Subtotal</span><span>₹<b id="sub">0.00</b></span></div>
+                <div><span>Discount</span><span>-₹<b id="dis">0.00</b></span></div>
+                <div><span>GST</span><span>+₹<b id="gstAmt">0.00</b></span></div>
+                <div><span>Shipping</span><span>+₹<b id="shipAmt">0.00</b></span></div>
+                <div class="grand"><span>Total</span><span>₹<b id="grand">0.00</b></span></div>
+            </div>
+
+            <button class="gen-btn" onclick="generateInvoice()">Generate Invoice</button>
+            <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+        </div>
+
+        <!-- RIGHT PANEL - PREVIEW -->
+        <div class="right" id="invoicePreview">
+            <div class="invoice-paper">
+                <div class="inv-header">
+                    <div>
+                        <h2 id="pCompany">Your Company</h2>
+                        <p id="pAddr">Company Address</p>
+                    </div>
+                    <div class="inv-meta">
+                        <h3>INVOICE</h3>
+                        <p id="pInvNo">INV001</p>
+                        <p id="pDateTime">Date</p>
+                    </div>
+                </div>
+
+                <div class="inv-customer">
+                    <p><b>Bill To:</b></p>
+                    <h3 id="pCustomer">Customer Name</h3>
+                    <p id="pMobile">Mobile</p>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Product</th><th>Qty</th><th>Price</th><th>Total</th></tr>
+                    </thead>
+                    <tbody id="pProducts"></tbody>
+                </table>
+
+                <div class="inv-totals">
+                    <div><span>Subtotal:</span><span id="pSub">₹0.00</span></div>
+                    <div><span>Discount:</span><span id="pDis">-₹0.00</span></div>
+                    <div><span>GST:</span><span id="pGst">+₹0.00</span></div>
+                    <div><span>Shipping:</span><span id="pShip">+₹0.00</span></div>
+                    <div class="p-grand"><span>Total Amount:</span><span id="pGrand">₹0.00</span></div>
+                </div>
+
+                <p class="thanks">Thank you for your business! 🤍</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
